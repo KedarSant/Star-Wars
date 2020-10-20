@@ -13,10 +13,14 @@
     <body>
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <!-- Navbar content -->
             <h1 class="mb-0 navbar-brand">STAR WARS</h1>
-            <ul class="navbar-nav" id="topNav"></ul>
+            <ul class="navbar-nav mr-auto" id="topNav"></ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id='searchText'>
+                <a tabindex="0" class="btn btn-outline-warning my-2 my-sm-0" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Empty" id='search'>Search</a>
+            </form>
         </nav>
 
         <!-- Container for Cards Grid By Category -->
@@ -35,7 +39,7 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 
-        <!-- Axios -->
+        <!-- Axios CDN -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
         <!-- Custom script -->

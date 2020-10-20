@@ -1,19 +1,26 @@
 
+$(function () {
+    $('[data-toggle="popover"]').popover()
+})
+
+
 function createCard(title, body) {
 
     let id_card = Math.floor(Math.random() * 10000);
     let col = document.createElement('div');
     col.className = 'col-lg-4 col-md-4 col-sm-12 mb-3';
-    col.innerHTML = `<div class="card bg-warning">
+    col.innerHTML = `<div class="card bg-warning" id="${title.replace(/\s/g, '').toLowerCase()}">
                         <div class="card-body">
                             <img class="card-img-top mb-5" src="image.jpg" alt="Card image cap">
                             <div class="mb-2 card-header">
-                                <button class="btn btn-dark">${title}</button>
-                                <button class="btn btn-dark" data-toggle="collapse" data-target="#collapse${id_card}" aria-expanded="true" aria-controls="collapseOne">
+                                <h3 class="card-title">${title}</h3>
+                                <a class="btn btn-dark" data-toggle="collapse"
+                                    data-target="#_${id_card}" 
+                                    aria-expanded="true" aria-controls="collapseOne">
                                     Expand
-                                </button>
+                                </a>
                             </div>
-                            <p class="collapse card-text" id="collapse${id_card}">${body}</p>
+                            <p class="collapse card-text" id="_${id_card}">${body}</p>
                         </div>
                     </div>`;
     return col;
@@ -80,3 +87,29 @@ axios('https://blooming-thicket-64006.herokuapp.com/https://swapi.dev/api')
                 })
         }
     })
+
+document.getElementById('search').addEventListener('mouseenter', function () {
+
+    let query = document.getElementById('searchText').value;
+    query = query.replace(/\s/g, '').toLowerCase();
+
+    if (document.getElementById(query) == null) {
+        this.setAttribute('data-content', 'Not found');
+    }
+    else {
+        this.setAttribute('data-content',' ');
+    }
+})
+
+document.getElementById('search').addEventListener('click', function () {
+    
+    let query = document.getElementById('searchText').value;
+    query = query.replace(/\s/g, '').toLowerCase();
+    
+    if (document.getElementById(query) == null) {
+        this.setAttribute('href','#')
+    }
+    else {
+        this.setAttribute('href', `#${query}`);
+    }
+})
