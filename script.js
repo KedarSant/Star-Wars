@@ -53,7 +53,7 @@ axios('https://blooming-thicket-64006.herokuapp.com/https://swapi.dev/api')
             let container = document.getElementById('GridContainer');
             container.appendChild(h2);
             container.appendChild(div);
-            axios(`https://swapi.dev/api/${category}/`)
+            axios(res.data[category])
                 .then(res => {
                     res.data.results.forEach(categoryObject => {
                         let title = categoryObject.title ? categoryObject.title : categoryObject.name;
