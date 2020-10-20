@@ -1,15 +1,21 @@
 
 function createCard(title, body) {
 
+    let id_card = Math.floor(Math.random() * 10000);
     let col = document.createElement('div');
     col.className = 'col-lg-4 col-md-4 col-sm-12 mb-3';
     col.innerHTML = `<div class="card bg-warning">
-                    <div class="card-body">
-                        <img class="card-img-top mb-5" src="image.jpg" alt="Card image cap">
-                        <h5 class="card-title">${title}</h5>
-                        <p class="card-text">${body}</p>
-                    </div>
-                </div>`;
+                        <div class="card-body">
+                            <img class="card-img-top mb-5" src="image.jpg" alt="Card image cap">
+                            <div class="mb-2 card-header">
+                                <button class="btn btn-dark">${title}</button>
+                                <button class="btn btn-dark" data-toggle="collapse" data-target="#collapse${id_card}" aria-expanded="true" aria-controls="collapseOne">
+                                    Expand
+                                </button>
+                            </div>
+                            <p class="collapse card-text" id="collapse${id_card}">${body}</p>
+                        </div>
+                    </div>`;
     return col;
 }
 
